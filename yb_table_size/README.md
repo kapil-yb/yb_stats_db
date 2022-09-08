@@ -1,6 +1,6 @@
 # yb_table_size
 
-DBA's need to understand keep a tab on the growing size of database and tables. This data can be helpful in ways such as:
+DBA's need to record and keep a tab on the growing size of database and tables. This data can be helpful in ways such as:
 
 1) Understand the table size growing over time for reporting purpose.
 2) Developer might have miss to set the purging policies on the table and thus size will continously keep on increasing.
