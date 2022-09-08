@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
-DBA's need to understand keep a tab on the growing size of database and tables. This data can be helpful in ways such as:
 
-1) Understand the table size growing over time for reporting purpose. 
-2) Developer might have miss to set the purging policies on the table and thus size will continously keep on increasing.
-3) A sudden drop or increase could be due to accidental deletion or insertion
-4) Management might want a utilization report for each Database in multi tennant environment.
+#DBA's need to understand keep a tab on the growing size of database and tables. This data can be helpful in ways such as:
 
-This program aim to capture the table level metrics which should help to capture the details.
+#1) Understand the table size growing over time for reporting purpose. 
+#2) Developer might have miss to set the purging policies on the table and thus size will continously keep on increasing.
+#3) A sudden drop or increase could be due to accidental deletion or insertion
+#4) Management might want a utilization report for each Database in multi tennant environment.
 
-Instructions:
-1) This script can be deployed on platform server
-2) Install the dependent module require by this script
-3) Schedule this script to run on daily basis ( Cron could be an option)
-# In[1]:
+#This program aim to capture the table level metrics which should help to capture the details.
+
+#Instructions:
+#1) This script can be deployed on platform server
+#2) Install the dependent module require by this script
+#3) Schedule this script to run on daily basis ( Cron could be an option)
 
 
 # Modules whcih are required for to run this program
@@ -31,9 +31,6 @@ import json
 import pandas as pd
 import psycopg2
 from datetime import datetime
-
-
-# In[2]:
 
 
 #Define Variables
@@ -57,9 +54,6 @@ yb_db_port="5433"
 yb_db_user="yugabyte"
 yb_db_password=""
 yb_db_ssl_path=""
-
-
-# In[3]:
 
 
 #Make a connection to the database
@@ -96,8 +90,6 @@ data = json.loads(res.read())
 # create sequence table_stats_run_id_sequence start 1 increment 1;
 # # Sequence will help to create unique ID for every script execution. It will also help to create primary key for the table
 
-# In[4]:
-
 
 try:
 # Connect to your postgres DB
@@ -111,17 +103,12 @@ except Exception as err:
     print ("Exception TYPE:", type(error))
 
 
-# In[5]:
-
-
 select_sql="SELECT nextval('table_stats_run_id_sequence')"
 cur.execute(select_sql)
 
 # Retrieve query results
 run_id = cur.fetchall()
 
-
-# In[6]:
 
 
 # Capture current date on whcih data was inserted into the table
@@ -131,7 +118,6 @@ now = datetime.now()
 date_time_str = now.strftime("%Y-%m-%d")
 
 
-# In[7]:
 
 
 # Final data insertion in the table 
@@ -142,14 +128,7 @@ for iter in data:
     conn.commit()
 
 
-# In[17]:
-
-
 conn.close()
-
-
-# In[ ]:
-
 
 
 
