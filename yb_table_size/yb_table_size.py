@@ -44,7 +44,7 @@ cUUID="3a69de7a-f74e-4124-adcd-de19484006da"
 #Replace Universe UUID
 uniUUID="7e848e2a-f7e1-47bc-8517-ec4a64b4e285"
 
-yb_user_token="0d26d552-0b12-4ed6-869b-425972e6b398"
+yb_user_token=""
 
 #Define Variables for connecting to YB Database
 
