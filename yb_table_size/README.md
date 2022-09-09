@@ -28,4 +28,8 @@ Create a database "yb_stats_db" and following object in the database:
 
 1) create table table_stats (run_id bigint,current_dt date,tableUUID text, dbname text,tableType text,tableName text,relationType text,sizeBytes float,isIndexTable text, primary key((run_id,current_dt,tableUUID) ));
 
+Here,
+run_id, is the unique execution ID for each instance of script execution
+current_dt, is the date when data is recorded
+
 2) create sequence table_stats_run_id_sequence start 1 increment 1;
