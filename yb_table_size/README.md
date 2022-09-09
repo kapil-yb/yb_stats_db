@@ -30,6 +30,7 @@ Create a database "yb_stats_db" and following object in the database:
 
 Here,
 run_id, is the unique execution ID for each instance of script execution
+
 current_dt, is the date when data is recorded
 
 2) create sequence table_stats_run_id_sequence start 1 increment 1;
