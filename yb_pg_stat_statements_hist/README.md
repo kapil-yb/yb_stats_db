@@ -51,5 +51,7 @@ create sequence pg_stat_statements_hist_seq start 1 increment 1;
 
 Depending upon system utilization (i.e. number of queries execution), script run schedule need to be defined. "pg_stat_statements" store information for latest queries only and old queries will get rolled over. 
 
-To schedule every 6 hours:
+Add following to schedule script every 6 hours in Linux OS crontab:
+```
 0 */6 * * * /home/yugabyte/yb_query_history.sh
+```
