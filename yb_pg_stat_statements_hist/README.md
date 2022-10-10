@@ -9,7 +9,7 @@ This solution is written in Shell script and need to be deployed on all the host
 Steps of deployment:
 1) Create a database "yb_stats_db" 
 2) Create a table "pg_stat_statements_hist" in database "yb_stats_db" with following DDL
-
+```
 create table pg_stat_statements_hist (
  run_id bigint,   // run_id is unique ID for every instance of script execution
  host_ip_addr text, // IP address of host to which data belongs
@@ -38,7 +38,7 @@ create table pg_stat_statements_hist (
   blk_read_time float,
   blk_write_time float
 );
-
+```
 3) Create a sequence "pg_stat_statements_hist_seq" required for run_id 
 
 create sequence pg_stat_statements_hist_seq start 1 increment 1;
@@ -52,4 +52,4 @@ create sequence pg_stat_statements_hist_seq start 1 increment 1;
 Depending upon system utilization (i.e. number of queries execution), script run schedule need to be defined. "pg_stat_statements" store information for latest queries only and old queries will get rolled over. 
 
 To schedule every 6 hours:
-* */6 * * * /home/yugabyte/yb_query_history.sh
+0 */6 * * * /home/yugabyte/yb_query_history.sh
